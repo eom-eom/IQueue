@@ -21,8 +21,8 @@ class CreatePatientsTable extends Migration
             $table->string('birth_date',15);
             $table->string('gender', 15);
             $table->string('age');
-            $table->bigInteger('address_id');
-            $table->bigInteger('contact_id');
+            $table->bigInteger('address_id')->nullable();
+            $table->bigInteger('contact_id')->nullable();
             $table->timestamps();
         });
     }
