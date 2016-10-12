@@ -4,10 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Address_cli extends Model
+class Expertise extends Model
 {
     //
+    protected $table = 'expertise';
     protected $fillable = [
-        'address_cli_id','client_id', 'address_id',
+        'expertise_id', 'description',
     ];
 }
+
+
+

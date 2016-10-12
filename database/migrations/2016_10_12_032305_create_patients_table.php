@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoctorsTable extends Migration
+class CreatePatientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateDoctorsTable extends Migration
      */
     public function up()
     {
-        schema::create('doctors', function(Blueprint $table){
-            $table->bigIncrements('doctor_id');
+        schema::create('patients', function(Blueprint $table){
+            $table->bigIncrements('patient_id');
             $table->string('first_name', 100);
             $table->string('last_name', 100);
             $table->string('middle_name',100)->nullable();
             $table->string('birth_date',15);
             $table->string('gender', 15);
             $table->string('age');
+            $table->bigInteger('address_id');
+            $table->bigInteger('contact_id');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateDoctorsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('doctors');
+        Schema::drop('patients');
     }
 }
