@@ -19,44 +19,44 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'iqueue'],function(){
 	Route::group(['prefix'=>'region'],function(){
-		Route::get('/','RegionController@getRegion');
+		Route::get('/',array('middleware' => 'cors', 'uses' => 'RegionController@getRegion'));
 	});
 
 	Route::group(['prefix'=>'province'],function(){
-		Route::post('/','ProvinceController@getProvince');
+		Route::post('/',array('middleware' => 'cors', 'uses' => 'ProvinceController@getProvince'));
 	});
 
 	Route::group(['prefix'=>'municipality'],function(){
-		Route::post('/','MunicipalityController@getMunicipality');
+		Route::post('/',array('middleware' => 'cors', 'uses' => 'MunicipalityController@getMunicipality'));
 	});
 
 	Route::group(['prefix'=>'barangay'],function(){
-		Route::post('/','BarangayController@getBarangay');
+		Route::post('/',array('middleware' => 'cors', 'uses' => 'BarangayController@getBarangay'));
 	});
 
 	Route::group(['prefix'=>'patient'],function(){
-		Route::post('/save','PatientController@savePatient');
-		Route::post('/ucp','PatientController@updateContactOfPatient');
-		Route::post('/uap','PatientController@updateAddressOfPatient');
+		Route::post('/save',array('middleware' => 'cors', 'uses' => 'PatientController@savePatient'));
+		Route::post('/ucp',array('middleware' => 'cors', 'uses' => 'PatientController@updateContactOfPatient'));
+		Route::post('/uap',array('middleware' => 'cors','uses' => 'PatientController@updateAddressOfPatient'));
 	});
 
 	Route::group(['prefix'=>'doctor'],function(){
-		Route::post('/save','DoctorController@saveDoctor');
+		Route::post('/save',array('middleware' => 'cors','uses' => 'DoctorController@saveDoctor'));
 		
 	});
 
 	Route::group(['prefix'=>'contacts'],function(){
-		Route::post('/save','ContactController@saveContact');
+		Route::post('/save',array('middleware' => 'cors', 'uses' => 'ContactController@saveContact'));
 		
 	});
 	Route::group(['prefix'=>'address'],function(){
-		Route::post('/save','AddressController@saveAddress');
+		Route::post('/save', array('middleware' => 'cors', 'uses' => 'AddressController@saveAddress'));
 		
 	});
 	Route::group(['prefix'=>'hospital'],function(){
-		Route::post('/save','HospitalController@saveHospital');
-		Route::post('/uchd','HospitalController@updateContactOfHD');
-		Route::post('/uahd','HospitalController@updateAddressOfHD');
+		Route::post('/save',array('middleware' => 'cors', 'uses' => 'HospitalController@saveHospital'));
+		Route::post('/uchd',array('middleware' => 'cors', 'uses' => 'HospitalController@updateContactOfHD'));
+		Route::post('/uahd',array('middleware' => 'cors', 'uses' => 'HospitalController@updateAddressOfHD'));
 		
 	});
 });
