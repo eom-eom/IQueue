@@ -11,6 +11,7 @@ class DoctorHospitalAddress extends Model
     protected $fillable = [
         'da_id', 'hospital_id', 'doctors_id', 'doctor_scheds_id',
     ];
+    public $timestamps = false;
 }
 
 

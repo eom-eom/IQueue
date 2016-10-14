@@ -17,7 +17,7 @@ class CreateDoctorsHospitalAddressTable extends Migration
             $table->bigIncrements('da_id');
             $table->bigInteger('hospital_id');
             $table->bigInteger('doctors_id');
-            $table->bigInteger('doctor_scheds_id');
+            $table->bigInteger('doctor_scheds_id')->nullable();
         });
     }
 

@@ -42,7 +42,10 @@ Route::group(['prefix'=>'iqueue'],function(){
 
 	Route::group(['prefix'=>'doctor'],function(){
 		Route::post('/save',array('middleware' => 'cors','uses' => 'DoctorController@saveDoctor'));
-		
+		Route::post('/DHA/save',array('middleware' => 'cors','uses' => 'DoctorHospitalAddressController@saveDoctorHospitalAddress'));
+		Route::post('/DoctorScheds/save',array('middleware' => 'cors','uses' => 'DoctorSchedsController@saveDoctorSched'));
+		Route::post('/Expertise/save',array('middleware' => 'cors','uses' => 'ExpertiseController@saveExpertise'));
+		Route::post('/Specialiazation/save',array('middleware' => 'cors','uses' => 'SpecializationController@saveSpecialization'));
 	});
 
 	Route::group(['prefix'=>'contacts'],function(){
@@ -53,10 +56,23 @@ Route::group(['prefix'=>'iqueue'],function(){
 		Route::post('/save', array('middleware' => 'cors', 'uses' => 'AddressController@saveAddress'));
 		
 	});
-	Route::group(['prefix'=>'hospital'],function(){
+	Route::group(['prefix'=>'hospital'],function(){	
 		Route::post('/save',array('middleware' => 'cors', 'uses' => 'HospitalController@saveHospital'));
 		Route::post('/uchd',array('middleware' => 'cors', 'uses' => 'HospitalController@updateContactOfHD'));
 		Route::post('/uahd',array('middleware' => 'cors', 'uses' => 'HospitalController@updateAddressOfHD'));
 		
 	});
+	Route::group(['prefix'=>'expertise'],function(){
+		Route::post('/save',array('middleware' => 'cors', 'uses' => 'ExpertiseController@saveExpertise'));
+	});
+	Route::group(['prefix'=>'specialization'],function(){
+		Route::post('/save',array('middleware' => 'cors', 'uses' => 'ExpertiseController@saveSpecialization'));
+	});
+	Route::group(['prefix'=>'users'],function(){
+		Route::post('/save',array('middleware' => 'cors', 'uses' => 'UserController@saveUser'));
+	});
+	Route::group(['prefix'=>'queue'],function(){
+		Route::post('/save',array('middleware' => 'cors', 'uses' => 'QueueController@saveUser'));
+	});
+
 });

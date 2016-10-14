@@ -24,7 +24,8 @@ class AddressController extends Controller
     	}
 
     	$res = Address::create($request->all());
-		return $res;
+        return $res;
+		//return response()->json(['message' => 'Address saved successfully.']);
     }
 
     

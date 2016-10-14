@@ -26,7 +26,8 @@ class PatientController extends Controller
     	}
 
     	$res = Patient::create($request->all());
-	    return $res;
+	    //return $res;
+        return response()->json(['message' => 'Information saved successfully.']);
     }
 
     public function updateContactOfPatient(Request $request){
@@ -34,7 +35,7 @@ class PatientController extends Controller
         $patient_id = $request->input('patient_id');
 
         $res = Patient::where('patient_id', $patient_id)->update(array('contact_id' => $contact_id));
-        return $res;
+        //return $res;
     }
 
     public function updateAddressOfPatient(Request $request){
@@ -42,7 +43,7 @@ class PatientController extends Controller
         $patient_id = $request->input('patient_id');
         
         $res = Patient::where('patient_id', $patient_id)->update(array('address_id' => $address_id));
-        return $res;
+       // return $res;
     }
     
     

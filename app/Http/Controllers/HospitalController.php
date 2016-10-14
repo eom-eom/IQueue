@@ -23,7 +23,8 @@ class HospitalController extends Controller
     	$res = Hospital::create($request->all());
 		//return $res;
 
-        return $res->id;
+       // return $res->id;
+        return response()->json(['message' => 'Hospital saved successfully.']);
     }
 
     public function updateContactOfHD(Request $request){
@@ -31,7 +32,7 @@ class HospitalController extends Controller
         $hospital_id = $request->input('hospital_id');
 
         $res = Hospital::where('hospital_id', $hospital_id)->update(array('contact_id' => $contact_id));
-        return $res;
+        //return $res;
     }
 
     public function updateAddressOfHD(Request $request){
@@ -39,6 +40,6 @@ class HospitalController extends Controller
         $hospital_id = $request->input('hospital_id');
         
         $res = Hospital::where('hospital_id', $hospital_id)->update(array('address_id' => $address_id));
-        return $res;
+        //return $res;
     }
 }

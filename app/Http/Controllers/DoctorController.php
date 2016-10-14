@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Doctor;
+use App\DoctorHospitalAddress;
 use App\Http\Requests;
 use Validator, Input, Redirect; 
 
 class DoctorController extends Controller
 {
+    var $doc_id="";
     public function saveDoctor(Request $request){
     	
     	 $validator = Validator::make($request->all(), array(
@@ -27,8 +29,16 @@ class DoctorController extends Controller
     	}
 
     	$res = Doctor::create($request->all());
-		return $res;
-    }
+        
+        //if condition wala pa sya nilagay
+        $doc_id = $res->id;
+        // $hospital_id = $request->input('hospital_id');
+        
+        // $res = DoctorHospitalAddress::create($request -> all());
+        return response()->json(['message' => 'Information saved successfully.','doc_id' => $doc_id]);
 
+		//return $res;
+    }
+    
     
 }

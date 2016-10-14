@@ -3,27 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Contacts;
+use App\DoctorScheds;
 use App\Http\Requests;
 use Validator, Input, Redirect; 
 
-class ContactController extends Controller
+class DoctorSchedsController extends Controller
 {
-    public function saveContact(Request $request){
+    //
+    public function saveDoctorSched(Request $request){
     	
     	 $validator = Validator::make($request->all(), array(
-            'mobile_no' => 'required'       
+            'ds_day' => 'required',
+            'ds_time' => 'required'
+            
+           
         ));
 
     	if ($validator->fails())
     	{
     		return response()->json(['error'=>$validator->errors()],408);
     	}
+       
+        $res = DoctorScheds::create($request -> all());
+       
 
-    	$res = Contacts::create($request->all());
 		return $res;
-        
     }
 
     
+
+
+
 }
