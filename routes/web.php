@@ -72,7 +72,9 @@ Route::group(['prefix'=>'iqueue'],function(){
 	});
 	Route::group(['prefix'=>'users'],function(){
 		Route::post('/save',array('middleware' => 'cors', 'uses' => 'UserController@saveUser'));
-		Route::put('/updateAccount',array('middleware' => 'cors', 'uses' => 'UserController@updateAccount'));
+		Route::post('/signUp',array('middleware' => 'cors', 'uses' => 'UserController@signUp'));
+		Route::post('/updateUsername',array('middleware' => 'cors', 'uses' => 'UserController@updateAccountUsername'));
+		Route::post('/updatePassword',array('middleware' => 'cors', 'uses' => 'UserController@updateAccountPassword'));
 	});
 	Route::group(['prefix'=>'queue'],function(){
 		Route::post('/save',array('middleware' => 'cors', 'uses' => 'QueueController@saveUser'));
