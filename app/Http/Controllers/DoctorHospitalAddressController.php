@@ -46,5 +46,7 @@ class DoctorHospitalAddressController extends Controller
         $res = DoctorHospitalAddress::where('hospital_id', $hospital_id)->('doc_scheds_id', $doc_scheds_id)->update(array('doctors_id' => $doctors_id,));
         return $res;
     }
+
+    
        
 }

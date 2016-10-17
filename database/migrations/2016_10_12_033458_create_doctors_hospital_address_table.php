@@ -16,7 +16,7 @@ class CreateDoctorsHospitalAddressTable extends Migration
         schema::create('doctors_hospital_address', function(Blueprint $table){
             $table->bigIncrements('da_id');
             $table->bigInteger('hospital_id');
-            $table->bigInteger('doctors_id');
+            $table->bigInteger('doctor_id');
             $table->bigInteger('doctor_scheds_id')->nullable();
         });
     }

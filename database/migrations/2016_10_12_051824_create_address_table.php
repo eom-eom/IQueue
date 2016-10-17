@@ -19,10 +19,10 @@ class CreateAddressTable extends Migration
             $table->string('building_name', 100)->nullable();
             $table->string('house_building_no', 100)->nullable();
             $table->string('subdivision_no', 100)->nullable();
-            $table->string('region_code', 100);
-            $table->string('province_code', 100);
-            $table->string('municipality_code', 100);
-            $table->string('barangay_code', 100);
+            $table->string('RegionCode', 100);
+            $table->string('provinceCode', 100);
+            $table->string('municipalityCode', 100);
+            $table->string('barangayCode', 100);
             $table->string('zip_code', 30)->nullable();
             $table->timestamps();
         });

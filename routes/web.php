@@ -38,6 +38,7 @@ Route::group(['prefix'=>'iqueue'],function(){
 		Route::post('/save',array('middleware' => 'cors', 'uses' => 'PatientController@savePatient'));
 		Route::post('/ucp',array('middleware' => 'cors', 'uses' => 'PatientController@updateContactOfPatient'));
 		Route::post('/uap',array('middleware' => 'cors','uses' => 'PatientController@updateAddressOfPatient'));
+		Route::post('/getPatientInfo',array('middleware' => 'cors', 'uses' => 'PatientController@getPatientInfo'));
 	});
 
 	Route::group(['prefix'=>'doctor'],function(){
@@ -46,6 +47,7 @@ Route::group(['prefix'=>'iqueue'],function(){
 		Route::post('/DoctorScheds/save',array('middleware' => 'cors','uses' => 'DoctorSchedsController@saveDoctorSched'));
 		Route::post('/Expertise/save',array('middleware' => 'cors','uses' => 'ExpertiseController@saveExpertise'));
 		Route::post('/Specialiazation/save',array('middleware' => 'cors','uses' => 'SpecializationController@saveSpecialization'));
+		Route::post('/getDoctortInfo',array('middleware' => 'cors', 'uses' => 'DoctorController@getDoctorInfo'));
 	});
 
 	Route::group(['prefix'=>'contacts'],function(){
@@ -70,6 +72,7 @@ Route::group(['prefix'=>'iqueue'],function(){
 	});
 	Route::group(['prefix'=>'users'],function(){
 		Route::post('/save',array('middleware' => 'cors', 'uses' => 'UserController@saveUser'));
+		Route::put('/updateAccount',array('middleware' => 'cors', 'uses' => 'UserController@updateAccount'));
 	});
 	Route::group(['prefix'=>'queue'],function(){
 		Route::post('/save',array('middleware' => 'cors', 'uses' => 'QueueController@saveUser'));

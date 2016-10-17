@@ -16,12 +16,15 @@ class CreateDoctorSchedsTable extends Migration
         schema::create('doctor_scheds', function(Blueprint $table){
             $table->bigIncrements('doctor_scheds_id');
             $table->string('ds_day', 100);
-            $table->string('ds_time', 100);
+            $table->string('ds_time_from', 100);
+            $table->string('ds_time_to', 100);
             $table->timestamps();
         });
     }
 
     /**
+     * 
+     */
      * Reverse the migrations.
      *
      * @return void
